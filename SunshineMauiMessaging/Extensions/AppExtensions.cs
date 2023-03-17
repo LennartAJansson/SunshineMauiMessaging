@@ -11,6 +11,7 @@ public static class AppExtensions
     {
         _ = services.AddSingleton<App>();
         _ = services.AddSingleton<AppShell>();
+        services.AddSingleton<InitialData>();
         _ = services.AddSingleton<StartPage, StartPageViewModel>();
         _ = services.AddSingleton<ActivitiesPage, ActivitiesPageViewModel>();
         return services;

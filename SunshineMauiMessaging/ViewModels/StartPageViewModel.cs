@@ -1,35 +1,31 @@
 ﻿namespace SunshineMauiMessaging.ViewModels;
 
-using System;
-
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging.Messages;
 
 using SunshineMauiMessaging.Extensions;
 using SunshineMauiMessaging.Messages;
 
-public partial class ActivitiesPageViewModel : ObservableRecipient
+public partial class StartPageViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private string exampleText;
     private readonly InitialData initialData;
 
-    public ActivitiesPageViewModel(InitialData initialData)
+    [ObservableProperty]
+    private string exampleText;
+
+    public StartPageViewModel(InitialData initialData)
     {
         this.initialData = initialData;
         ExampleText = initialData.Text;
-        WeakReferenceMessenger.Default.Register<ExampleTextChanged>(this, HandleOpenWindowMessage);
-    }
-
-    private void HandleOpenWindowMessage(object recipient, ExampleTextChanged message)
-    {
-        ExampleText = message.Value;
     }
 
     [RelayCommand]
     public Task OkClicked()
     {
+        var test = WeakReferenceMessenger.Default.Send(new ExampleTextChanged(ExampleText));
+        string text = test.Value;
         return Task.CompletedTask;
     }
 }
