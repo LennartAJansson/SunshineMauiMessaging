@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:KlassikerApp.ViewModels"
+             xmlns:m="clr-namespace:KlassikerApp.Models"
+             x:Class="KlassikerApp.Views.LoginView"
+             MaximumWidthRequest="300" 
+             MaximumHeightRequest="500"
+             x:DataType="vm:LoginViewModel" 
+             >
+    <!--<ContentView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>-->
+
+    <VerticalStackLayout>
+        <Label Text="Enter Email:" Margin="0,4,0,0"/>
+        <Entry Text="{Binding Email}">
+            <Entry.Behaviors>
+                <toolkit:EmailValidationBehavior 
+                    InvalidStyle="{StaticResource InvalidEntryStyle}"
+                    ValidStyle="{StaticResource ValidEntryStyle}"
+                    Flags="ValidateOnValueChanged" />
+            </Entry.Behaviors>
+        </Entry>
+
+        <Label Text="Enter Password:" Margin="0,4,0,0"/>
+        <Entry Text="{Binding Password}" IsPassword="True"/>
+
+        <Button Text="Login" Command="{Binding LoginCommand}" Margin="0,4,0,4"/>
+    </VerticalStackLayout>
+</ContentView>

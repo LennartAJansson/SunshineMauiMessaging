@@ -58,7 +58,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
-	  <Folder Include="Views\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -72,6 +71,15 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\ActivitiesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\User\LoginView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\User\RegisterView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\User\ResetPasswordView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
