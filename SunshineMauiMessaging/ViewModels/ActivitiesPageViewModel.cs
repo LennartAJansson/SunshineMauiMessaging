@@ -13,10 +13,12 @@ public partial class ActivitiesPageViewModel : ObservableRecipient
     private string exampleText;
 
     private readonly InitialData initialData;
+    private readonly CurrentUser user;
 
-    public ActivitiesPageViewModel(InitialData initialData)
+    public ActivitiesPageViewModel(InitialData initialData, CurrentUser user)
     {
         this.initialData = initialData;
+        this.user = user;
         ExampleText = initialData.ExampleText;
         WeakReferenceMessenger.Default.Register<ExampleTextChanged>(this, HandleOpenWindowMessage);
     }

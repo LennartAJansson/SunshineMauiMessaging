@@ -6,9 +6,11 @@ using SunshineMauiMessaging.Messages;
 
 public class CurrentUser
 {
-    public string UserName { get => userName; set { userName = value; ValueChanged(this); } }
-    private string userName = "Initial Text";
     public Guid Id { get; set; } = Guid.Empty;
+    public string UserName { get => userName; set { userName = value; ValueChanged(this); } }
+    private string userName = string.Empty;
+    public string Password { get => password; set { password = value; ValueChanged(this); } }
+    private string password = string.Empty;
     public string JwtToken { get => jwtToken; set { jwtToken = value; ValueChanged(this); } }
     private string jwtToken = string.Empty;
 

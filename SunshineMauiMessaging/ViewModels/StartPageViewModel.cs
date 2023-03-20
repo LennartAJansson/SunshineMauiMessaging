@@ -10,13 +10,14 @@ using SunshineMauiMessaging.Messages;
 public partial class StartPageViewModel : ObservableRecipient
 {
     private readonly InitialData initialData;
-
+    private readonly CurrentUser user;
     [ObservableProperty]
     private string exampleText;
 
-    public StartPageViewModel(InitialData initialData)
+    public StartPageViewModel(InitialData initialData, CurrentUser user)
     {
         this.initialData = initialData;
+        this.user = user;
         ExampleText = initialData.ExampleText;
         WeakReferenceMessenger.Default.Register<ExampleTextChanged>(this, HandleOpenWindowMessage);
     }
