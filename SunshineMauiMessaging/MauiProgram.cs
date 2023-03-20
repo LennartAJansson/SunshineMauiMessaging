@@ -1,4 +1,5 @@
 ﻿namespace SunshineMauiMessaging;
+
 using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Markup;
 
@@ -11,17 +12,20 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         MauiAppBuilder builder = MauiApp.CreateBuilder();
-        builder
-            .Services.AddAppServices();
 
         builder
         // Initialize the .NET MAUI Community Toolkit by adding the below line of code
-        .UseMauiCommunityToolkit().UseMauiCommunityToolkitMarkup().UseMauiCommunityToolkitMediaElement()// End Community Toolkit
-        .UseMauiApp<App>().ConfigureFonts(fonts =>
+        .UseMauiCommunityToolkit()
+        .UseMauiCommunityToolkitMarkup()
+        .UseMauiCommunityToolkitMediaElement()
+        // End Community Toolkit
+        .UseMauiApp<App>()
+        .ConfigureFonts(fonts =>
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-        }).UseMauiCommunityToolkit();
+        })
+        .Services.AddAppServices();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

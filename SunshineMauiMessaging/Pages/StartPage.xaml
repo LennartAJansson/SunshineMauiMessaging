@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:SunshineMauiMessaging.Pages"
              xmlns:vm="clr-namespace:SunshineMauiMessaging.ViewModels"
              x:Class="SunshineMauiMessaging.Pages.StartPage"
              Title="Start"
              x:DataType="vm:StartPageViewModel">
+    
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"
@@ -13,5 +15,6 @@
             HorizontalOptions="Center" />
         <Entry Text="{Binding ExampleText}" WidthRequest="200"/>
         <Button Command="{Binding OkClickedCommand}" Text="Ok"/>
+
     </VerticalStackLayout>
 </ContentPage>

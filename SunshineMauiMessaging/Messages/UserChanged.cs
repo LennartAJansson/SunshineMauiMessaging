@@ -4,9 +4,9 @@ using CommunityToolkit.Mvvm.Messaging.Messages;
 
 using SunshineMauiMessaging.Extensions;
 
-public class ExampleTextChanged : ValueChangedMessage<string>
+public class UserChanged : ValueChangedMessage<CurrentUser>
 {
-    public ExampleTextChanged(string text) : base(text)
+    public UserChanged(CurrentUser value) : base(value)
     {
     }
 }

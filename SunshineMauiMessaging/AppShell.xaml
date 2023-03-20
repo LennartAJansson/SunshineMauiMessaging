@@ -11,18 +11,20 @@
 
     <Shell.FlyoutHeader>
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
-            <!--<Image Source="wind_face_3d.png" WidthRequest="80" HeightRequest="80" />-->
+            <Image Source="dotnet_bot.png" WidthRequest="80" HeightRequest="80" />
             <Label Text="SogetiKlassiker" FontFamily="OpenSansSemibold" FontSize="32" VerticalOptions="Center" />
         </HorizontalStackLayout>
     </Shell.FlyoutHeader>
     
     <ShellContent
         Title="Start"
+        Icon="dotnet_bot.png"
         ContentTemplate="{DataTemplate pages:StartPage}"
         Route="StartPage" />
 
     <ShellContent
         Title="Activities"
+        Icon="dotnet_bot.png"
         ContentTemplate="{DataTemplate pages:ActivitiesPage}"
         Route="ActivitiesPage" />
 
