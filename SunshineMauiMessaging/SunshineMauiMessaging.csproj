@@ -10,6 +10,7 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable Condition="$([MSBuild]::IsOSPlatform('windows'))">enable</Nullable>
 
 		<!-- Display name -->
 		<ApplicationTitle>SunshineMauiMessaging</ApplicationTitle>
@@ -49,29 +50,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
 		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.1.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="1.0.2" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Pages\ActivitiesPage.xaml.cs">
-	    <DependentUpon>ActivitiesPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\StartPage.xaml.cs">
-	    <DependentUpon>StartPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\ActivitiesPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\StartPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>

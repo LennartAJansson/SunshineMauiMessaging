@@ -9,29 +9,25 @@ using SunshineMauiMessaging.Messages;
 
 public partial class ActivitiesPageViewModel : ObservableRecipient
 {
-    [ObservableProperty]
-    private string exampleText;
-
-    private readonly InitialData initialData;
     private readonly CurrentUser user;
 
-    public ActivitiesPageViewModel(InitialData initialData, CurrentUser user)
+    [ObservableProperty]
+    private string userName = string.Empty;
+
+    public ActivitiesPageViewModel(CurrentUser user)
     {
-        this.initialData = initialData;
         this.user = user;
-        ExampleText = initialData.ExampleText;
-        WeakReferenceMessenger.Default.Register<ExampleTextChanged>(this, HandleOpenWindowMessage);
+        WeakReferenceMessenger.Default.Register<UserChanged>(this, HandleOpenWindowMessage);
     }
 
-    private void HandleOpenWindowMessage(object recipient, ExampleTextChanged message)
+    private void HandleOpenWindowMessage(object recipient, UserChanged message)
     {
-        ExampleText = message.Value;
+        UserName = message.Value.UserName;
     }
 
     [RelayCommand]
     public Task OkClicked()
     {
-        initialData.ExampleText = ExampleText;
         return Task.CompletedTask;
     }
 }

@@ -2,11 +2,13 @@
 
 using CommunityToolkit.Mvvm.Messaging;
 
+using SunshineMauiMessaging.Clients;
+using SunshineMauiMessaging.Contracts;
 using SunshineMauiMessaging.Messages;
 
 public class CurrentUser
 {
-    public Guid Id { get; set; } = Guid.Empty;
+    public Guid IdentityId { get; set; } = Guid.Empty;
     public string UserName { get => userName; set { userName = value; ValueChanged(this); } }
     private string userName = string.Empty;
     public string Password { get => password; set { password = value; ValueChanged(this); } }
@@ -14,25 +16,30 @@ public class CurrentUser
     public string JwtToken { get => jwtToken; set { jwtToken = value; ValueChanged(this); } }
     private string jwtToken = string.Empty;
 
-    private readonly IApiInterface api;
+    private LoginUserResponse? user = null;
 
-    public CurrentUser(IApiInterface api)
+    private readonly IAuthIdentityClient api;
+
+    public CurrentUser(IAuthIdentityClient api)
     {
         this.api = api;
     }
 
     public async Task LoginUser()
     {
-        await api.LoginUser();
+        user = await api.LoginUser(LoginUserRequest.Instance("", ""));
+        IdentityId = user.IdentityId;
+        UserName = user.Username!;
+        JwtToken = user.Token;
     }
-    public async Task LogoutUser()
+    public Task LogoutUser()
     {
-        await api.LogoutUser();
+        throw new NotImplementedException();
     }
 
-    public async Task RefreshUser()
+    public Task RefreshUser()
     {
-        await api.RefreshUser();
+        throw new NotImplementedException();
     }
 
     public void ValueChanged(CurrentUser user)

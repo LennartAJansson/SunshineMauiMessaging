@@ -11,7 +11,6 @@ public static class AppExtensions
     {
         _ = services.AddSingleton<App>();
         _ = services.AddSingleton<AppShell>();
-        _ = services.AddSingleton<InitialData>();
         _ = services.AddSingleton<CurrentUser>();
         _ = services.AddTransient<IApiInterface, ApiInterface>();
         _ = services.AddSingleton<StartPage, StartPageViewModel>();
